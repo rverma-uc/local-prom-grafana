@@ -33,7 +33,26 @@ scrape_configs:
     honor_labels: true
     static_configs:
       - targets: ['pushgateway:9091']
+ 
+  - job_name: 'kube-state-metrics'
+    scrape_interval: 10s
+    honor_labels: true
+    static_configs:
+      - targets: ['10.45.14.145:8080']
 
+  - job_name: 'job-dispatcher'
+    scrape_interval: 10s
+    honor_labels: true
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ['10.45.12.12:8081', '10.45.21.126:8081', '10.45.12.179:8081']
+
+  - job_name: 'job-monitor'
+    scrape_interval: 10s
+    honor_labels: true
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ['10.45.21.83:8080']
 
 alerting:
   alertmanagers:

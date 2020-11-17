@@ -2,3 +2,5 @@
 .vs/
 .vscode/
 .idea/
+prometheus-data/
+grafana-data/
